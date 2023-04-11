@@ -6,7 +6,7 @@ import com.example.myapplication.model.Quotes
 
 class LiveDataBindingViewModel : ViewModel() {
 
-    val quoteLiveData = MutableLiveData(Quotes("quote of live data binding", "04-04-2023"))
+    val quoteLiveData = MutableLiveData<Quotes>(Quotes("quote of live data binding", "04-04-2023"))
 
     fun updateQuotes(){
         quoteLiveData.value = Quotes("updated quote of live data binding", "another date")
