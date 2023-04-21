@@ -1,14 +1,14 @@
-package com.example.myapplication.view
+package com.example.architecturecomponent.view
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.MainViewModelFactory
-import com.example.myapplication.R
-import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.view_model.MainViewModel
+import com.example.architecturecomponent.MainViewModelFactory
+import com.example.architecturecomponent.R
+import com.example.architecturecomponent.databinding.ActivityMainBinding
+import com.example.architecturecomponent.view_model.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     lateinit var txtCount : TextView

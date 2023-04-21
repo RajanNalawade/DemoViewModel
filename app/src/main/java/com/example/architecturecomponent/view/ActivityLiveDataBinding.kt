@@ -1,12 +1,12 @@
-package com.example.myapplication.view
+package com.example.architecturecomponent.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.R
-import com.example.myapplication.databinding.ActivityLiveDataBindingBinding
-import com.example.myapplication.view_model.LiveDataBindingViewModel
+import com.example.architecturecomponent.R
+import com.example.architecturecomponent.databinding.ActivityLiveDataBindingBinding
+import com.example.architecturecomponent.view_model.LiveDataBindingViewModel
 
 class ActivityLiveDataBinding : AppCompatActivity() {
     lateinit var liveDataBindingViewModel: LiveDataBindingViewModel
@@ -17,7 +17,7 @@ class ActivityLiveDataBinding : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_live_data_binding)
         liveDataBindingViewModel= ViewModelProvider(this).get(LiveDataBindingViewModel::class.java)
 
-        binding.viewModel = liveDataBindingViewModel
+        binding.liveDataViewModel = liveDataBindingViewModel
 
         //use this when you use livedata in to the binding
         binding.lifecycleOwner = this

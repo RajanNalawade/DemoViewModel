@@ -6,7 +6,7 @@
     <data>
         <variable
             name="objQuotes"
-            type="com.example.myapplication.model.Quotes" />
+            type="com.example.architecturecomponent.model.Quotes" />
 
     </data>
 
@@ -15,15 +15,26 @@
         android:layout_height="match_parent"
         tools:context=".view.MainActivity">
 
+        <ImageView android:id="@+id/imgIcon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            imageFromUrl="@{objQuotes.imgUrl}"
+            android:src="@android:drawable/ic_menu_upload_you_tube"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <TextView
             android:id="@+id/txtQuote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
             android:text="@{objQuotes.strQuotes}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/imgIcon"
+            app:layout_constraintStart_toStartOf="@+id/imgIcon"
+            app:layout_constraintTop_toBottomOf="@+id/imgIcon" />
 
         <TextView
             android:id="@+id/txtAuthor"
