@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.myapplication.model.Contact
 import com.example.myapplication.utils.ContactDAO
+import com.example.myapplication.utils.RoomTypeConverters
 
 @Database(entities = [Contact::class], version = 1)
+@TypeConverters(RoomTypeConverters::class)
 abstract class ContactDatabase : RoomDatabase() {
 
     abstract fun connectToContactDAO() : ContactDAO

@@ -9,6 +9,7 @@ import com.example.myapplication.database.ContactDatabase
 import com.example.myapplication.model.Contact
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         db = ContactDatabase.getContactDB(this)
 
         GlobalScope.launch {
-            db.connectToContactDAO().insertContact(Contact( 0, "A" ,"a@gmail.com"))
+            db.connectToContactDAO().insertContact(Contact( 0, "A" ,"a@gmail.com", Date()))
         }
     }
 
