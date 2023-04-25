@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         db = ContactDatabase.getContactDB(this)
 
         GlobalScope.launch {
-            db.connectToContactDAO().insertContact(Contact( 0, "A" ,"a@gmail.com", Date()))
+            db.connectToContactDAO().insertContact(Contact( 0, "A" ,"a@gmail.com", Date(), true))
         }
     }
 
