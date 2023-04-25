@@ -1,25 +1,34 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
+import androidx.room.Room
+import com.example.myapplication.database.ContactDatabase
+import com.example.myapplication.model.Contact
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    lateinit var txtCount : TextView
-    lateinit var mMainViewModel: MainViewModel
+
+    lateinit var db : ContactDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mMainViewModel = ViewModelProvider(this, MainViewModelFactory(30)).get(MainViewModel::class.java)
 
-        txtCount = findViewById(R.id.txtCount)
-        txtCount.text = mMainViewModel.count.toString()
+        db = Room.databaseBuilder(applicationContext, ContactDatabase::class.java, "contact_db").build()
+
+        GlobalScope.launch {
+            db.connectToContactDAO().insertContact(Contact( 0, "A" ,"a@gmail.com"))
+        }
     }
 
-    fun onIncrement(mView: View) {
-        mMainViewModel.increamentCount()
+    fun onIncrement(mView: View){
+        db.connectToContactDAO().getContact().observe(this, Observer {
+            Log.d("rajan", "onIncrement: ${it.toString()}")
+        })
     }
 }
