@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.room.Room
 import com.example.myapplication.database.ContactDatabase
 import com.example.myapplication.model.Contact
 import kotlinx.coroutines.GlobalScope
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        db = Room.databaseBuilder(applicationContext, ContactDatabase::class.java, "contact_db").build()
+        db = ContactDatabase.getContactDB(this)
 
         GlobalScope.launch {
             db.connectToContactDAO().insertContact(Contact( 0, "A" ,"a@gmail.com"))
